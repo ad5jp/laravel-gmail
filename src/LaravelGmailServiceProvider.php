@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../config/gmail.php' => config_path('gmail.php'),
         ]);
 
-        app('swift.transport')->extend('gmail', static function ($app) {
+        app('mail.manager')->extend('gmail', static function ($app) {
             return $app->make(GmailTransport::class);
         });
     }

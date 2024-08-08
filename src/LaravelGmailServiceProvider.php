@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/gmail.php', 'gmail'
+            __DIR__ . '/config/gmail.php', 'gmail'
         );
     }
 
@@ -22,10 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../config/gmail.php' => config_path('gmail.php'),
-        ]);
-
         app('swift.transport')->extend('gmail', static function ($app) {
             return $app->make(GmailTransport::class);
         });

@@ -23,10 +23,10 @@ Specify the version according to your environment:
   
 ### 1. Create a Service Account on Google Cloud Platform  
   
-1. Google Cloud Platform のコンソールで、プロジェクトを作成します。  
-2. Gmail API を有効化します。  
-3. サービスアカウントを作成し、キーを作成して、JSON形式でダウンロードします。  
-4. Google Workspace の管理コンソールで「ドメイン全体の権限の委任」を設定します。上記のサービスアカウントに対して、スコープ `https://www.googleapis.com/auth/gmail.send` を付与します。  
+1. Create a project in the Google Cloud Platform console.
+2. Enable the Gmail API.
+3. Create a service account, generate a key, and download it in JSON format.
+4. In the Google Workspace admin console, set up "Domain-wide Delegation". Assign the scope https://www.googleapis.com/auth/gmail.send to the service account created above.
   
 ### 2. Place the Key  
   

@@ -5,7 +5,7 @@ namespace AD5jp\LaravelGmail;
 use AD5jp\LaravelGmail\GmailTransport;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class LaravelGmailServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/gmail.php', 'gmail'
+            __DIR__ . '/config/gmail.php', 'mail.mailers.gmail'
         );
     }
 
@@ -22,12 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../config/gmail.php' => config_path('gmail.php'),
-        ]);
-
-        app('mail.manager')->extend('gmail', static function ($app) {
-            return $app->make(GmailTransport::class);
+        app('mail.manager')->extend('gmail', static function ($config) {
+            return new GmailTransport($config);
         });
     }
 }

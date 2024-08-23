@@ -5,7 +5,7 @@ namespace AD5jp\LaravelGmail;
 use AD5jp\LaravelGmail\GmailTransport;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class LaravelGmailServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
